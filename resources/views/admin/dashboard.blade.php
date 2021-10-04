@@ -1,0 +1,1 @@
+<h1 style="text-align: center;color: blue;">Welcome to Admin dashbord</h1>
