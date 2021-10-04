@@ -19,6 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('dashboard','Admin\AdminController@index');
-Route::get('user-page','User\UserController@index');
+Route::group(['middleware' => ['auth']], function () { 
+  Route::group(['middleware' => ['role:user']], function () { 
+          Route::get('/home', 'HomeController@index')->name('home');
+           Route::get('/userpage','User\UserController@index')->name('userpage');
+  });
+Route::group(['middleware' => ['role:admin']], function () { 
+
+      Route::get('/home', 'HomeController@index')->name('home');
+       Route::get('/dashboard','Admin\AdminController@index')->name('dashboard');
+
+  });
+
+});
+ Route::get('/home', 'HomeController@index')->name('home');
