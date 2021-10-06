@@ -20,11 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () { 
-  Route::group(['middleware' => ['role:user']], function () { 
+  Route::group(['middleware' => ['role:user,admin']], function () { 
           Route::get('/home', 'HomeController@index')->name('home');
            Route::get('/userpage','User\UserController@index')->name('userpage');
   });
-Route::group(['middleware' => ['role:admin']], function () { 
+Route::group(['middleware' => ['role:admin,user']], function () { 
 
       Route::get('/home', 'HomeController@index')->name('home');
        Route::get('/dashboard','Admin\AdminController@index')->name('dashboard');

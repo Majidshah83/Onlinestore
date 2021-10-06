@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
          break; 
 
       default:
-         return '/home'; 
+         return '/login'; 
          break;
     }
   }

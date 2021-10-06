@@ -19,12 +19,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="backgorund">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm navbarclor">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/login') }}" style="font-size: 30px; font-weight: bold; color: white;">
+                   Online Store
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -37,15 +37,16 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" style="color:white;">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" style="color: white;"  
+                                href="{{ route('login') }}">{{ __('Login') }} </a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" style="color:white;" href="{{ route('login') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -72,9 +73,27 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="pass container-fluid">
             @yield('content')
         </main>
     </div>
 </body>
 </html>
+
+<style type="text/css">
+    .backgorund{
+        background-image:url({{('image/6.png')}});
+    }
+  .navbarclor{
+    color: white;
+    font-weight: 20px;
+    background-color: red;
+  }
+  .pass{
+    padding-top: 8%;
+ background-image:url({{('image/6.png')}});
+  }
+    
+</style>
+
+    
