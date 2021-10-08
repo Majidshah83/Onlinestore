@@ -33,3 +33,9 @@ Route::group(['middleware' => ['role:admin,user']], function () {
 
 });
  Route::get('/home', 'HomeController@index')->name('home');
+
+ Route::get('index','FrontendController\MainController@index');
+ Route::get('shop','FrontendController\ShopController@index')->name('shop');
+ Route::get('productdeatil','FrontendController\ProductController@productDeatil')->name('productdeatil');
+ Route::get('cart','FrontendController\CartController@index')->name('cart');
+ Route::get('checkout','FrontendController\CheckoutController@index')->name('checkout');

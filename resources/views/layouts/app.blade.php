@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm navbarclor">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/login') }}" style="font-size: 30px; font-weight: bold; color: white;">
+                <a class="navbar-brand" href="{{ url('/index') }}" style="font-size: 30px; font-weight: bold; color: white;">
                    Online Store
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
