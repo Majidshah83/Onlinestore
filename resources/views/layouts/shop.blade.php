@@ -163,12 +163,18 @@
                     </ul>
                   </div>
                 </div>
+              
                 <div class="row">
                   <!-- PRODUCT-->
+                  @foreach($products as $product)   
                   <div class="col-lg-4 col-sm-6">
                     <div class="product text-center">
                       <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-1.jpg" alt="..."></a>
+                        
+                        <div class="badge text-white badge-"></div><a class="d-block" href="productdeatil">
+                         @if(count($product->pictures)>0 ||$product->pictures==null)
+                          <img class="img-fluid w-100" src="{{asset('ProductImages/' . $product->pictures[0]->image_path)}}" @endif alt="..."></a>
+                       
                         <div class="product-overlay">
                           <ul class="mb-0 list-inline">
                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
@@ -177,197 +183,11 @@
                           </ul>
                         </div>
                       </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Kui Ye Chen’s AirPods</a></h6>
-                      <p class="small text-muted">$250</p>
+                      <h6> <a class="reset-anchor" href="detail.html">{{$product->name}}</a></h6>
+                      <p class="small text-muted">{{$product->sale_price}}</p>
                     </div>
                   </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-2.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Air Jordan 12 gym red</a></h6>
-                      <p class="small text-muted">$300</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-primary">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-3.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Cyan cotton t-shirt</a></h6>
-                      <p class="small text-muted">$25</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-4.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Timex Unisex Originals</a></h6>
-                      <p class="small text-muted">$351</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-info">Sale</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-5.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Red digital smartwatch</a></h6>
-                      <p class="small text-muted">$250</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-6.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Nike air max 95</a></h6>
-                      <p class="small text-muted">$300</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-7.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Joemalone Women prefume</a></h6>
-                      <p class="small text-muted">$25</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-8.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Apple Watch</a></h6>
-                      <p class="small text-muted">$351</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-danger">Sold</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-9.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Men silver Byron Watch</a></h6>
-                      <p class="small text-muted">$351</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-primary">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-10.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Ploaroid one step camera</a></h6>
-                      <p class="small text-muted">$351</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-11.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Gray Nike running shoes</a></h6>
-                      <p class="small text-muted">$351</p>
-                    </div>
-                  </div>
-                  <!-- PRODUCT-->
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-12.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">Black DSLR lense</a></h6>
-                      <p class="small text-muted">$351</p>
-                    </div>
-                  </div>
+                 @endforeach 
                 </div>
                 <!-- PAGINATION-->
                 <nav aria-label="Page navigation example">
