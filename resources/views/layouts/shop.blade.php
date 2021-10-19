@@ -171,7 +171,7 @@
                     <div class="product text-center">
                       <div class="mb-3 position-relative">
                         
-                        <div class="badge text-white badge-"></div><a class="d-block" href="productdeatil">
+                        <div class="badge text-white badge-"></div><a class="d-block"  href="{{url('productdeatil/'.$product->id)}}">                        
                          @if(count($product->pictures)>0 ||$product->pictures==null)
                           <img class="img-fluid w-100" src="{{asset('ProductImages/' . $product->pictures[0]->image_path)}}" @endif alt="..."></a>
                        

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Boutique | Ecommerce bootstrap template</title>
+    <title>Boutique @yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -13,19 +13,12 @@
   <body>
     <div class="page-holder">
       <!-- navbar-->
- @include('layouts.header')
-      <!--  Modal -->
-      <div class="modal fade" id="productView" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal fade" id="productView" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-body p-0">
               <div class="row align-items-stretch">
-                <div class="col-lg-6 p-lg-0"><a class="product-view d-block h-100 bg-cover bg-center" style="background: url(img/product-5.jpg)" href="img/product-5.jpg" data-lightbox="productview" title="Red digital smartwatch"></a><a class="d-none" href="img/product-5-alt-1.jpg" title="Red digital smartwatch" data-lightbox="productview"></a><a class="d-none" href="img/product-5-alt-2.jpg" title="Red digital smartwatch" data-lightbox="productview"></a></div>
-                <div class="col-lg-6">
-                  <button class="close p-4" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                  <div class="p-5 my-md-4">
-                    <ul class="list-inline mb-2">
-                      <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
+                <div class="col-lg-6 p-lg-0"><a class="product-view d-block h-100t-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                       <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                       <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                       <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
@@ -33,7 +26,12 @@
                     </ul>
                     <h2 class="h4">Red digital smartwatch</h2>
                     <p class="text-muted">$250</p>
-                    <p class="text-small mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.</p>
+            bg-cover bg-center" style="background: url(img/product-5.jpg)" href="{{asset('layouts')}}/img/product-5.jpg" data-lightbox="productview" title="Red digital smartwatch"></a><a class="d-none" href="{{asset('layouts')}}/img/product-5-alt-1.jpg" title="Red digital smartwatch" data-lightbox="productview"></a><a class="d-none" href="img/product-5-alt-2.jpg" title="Red digital smartwatch" data-lightbox="productview"></a></div>
+                <div class="col-lg-6">
+                  <button class="close p-4" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  <div class="p-5 my-md-4">
+                    <ul class="list-inline mb-2">
+                      <li class="lis               <p class="text-small mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.</p>
                     <div class="row align-items-stretch mb-4">
                       <div class="col-sm-7 pr-sm-0">
                         <div class="border d-flex align-items-center justify-content-between py-1 px-3"><span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
@@ -53,6 +51,7 @@
           </div>
         </div>
       </div>
+     @include('layouts.header')
       <!-- HERO SECTION-->
       @yield('content')  <!-- content is name  of Index page -->
        @yield('shop')  <!-- content is name  of shop page -->
@@ -65,15 +64,16 @@
      
 
       </footer>
-      <!-- JavaScript files-->
-      @include('layouts.script')   <!--inlude script page -->
+     <!-- JavaScript files-->
+       @include('layouts.script')   <!--inlude script page -->
+      <script>
         // ------------------------------------------------------- //
-        //   Inject SVG Sprite - 
-        //   see more here 
+        //   Inject SVG Sprite -
+        //   see more here
         //   https://css-tricks.com/ajaxing-svg-sprite/
         // ------------------------------------------------------ //
         function injectSvgSprite(path) {
-        
+
             var ajax = new XMLHttpRequest();
             ajax.open("GET", path, true);
             ajax.send();
@@ -84,12 +84,12 @@
             document.body.insertBefore(div, document.body.childNodes[0]);
             }
         }
-        // this is set to BootstrapTemple website as you cannot 
+        // this is set to BootstrapTemple website as you cannot
         // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
         // while using file:// protocol
         // pls don't forget to change to your domain :)
-        injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg'); 
-        
+        injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
+
       </script>
       <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

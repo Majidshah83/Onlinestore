@@ -7,16 +7,22 @@
             <div class="col-lg-6">
               <!-- PRODUCT SLIDER-->
               <div class="row m-sm-0">
+                
                 <div class="col-sm-2 p-sm-0 order-2 order-sm-1 mt-2 mt-sm-0">
                   <div class="owl-thumbs d-flex flex-row flex-sm-column" data-slider-id="1">
-                    <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="{{asset('ProductImages/' . $products->pictures[0]->image_path)}}" alt="..."></div>
-                    <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="{{asset('ProductImages/' . $products->pictures[0]->image_path)}}" alt="..."></div>
-                    <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="{{asset('ProductImages/' . $products->pictures[0]->image_path)}}" alt="..."></div>
-                    <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="{{asset('ProductImages/' . $products->pictures[0]->image_path)}}" alt="..."></div>
+                    @foreach($products->pictures as $product)
+                    <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="{{asset('ProductImages/' . $product->image_path)}}" alt="..."></div>
+                   @endforeach
                   </div>
+                 
                 </div>
                 <div class="col-sm-10 order-1 order-sm-2">
-                  <div class="owl-carousel product-slider" data-slider-id="1"><a class="d-block" href="img/product-detail-1.jpg" data-lightbox="product" title="Product item 1"><img class="img-fluid" src="img/product-detail-1.jpg" alt="..."></a><a class="d-block" href="img/product-detail-2.jpg" data-lightbox="product" title="Product item 2"><img class="img-fluid" src="img/product-detail-2.jpg" alt="..."></a><a class="d-block" href="img/product-detail-3.jpg" data-lightbox="product" title="Product item 3"><img class="img-fluid" src="img/product-detail-3.jpg" alt="..."></a><a class="d-block" scr="{{asset('layouts')}}/img/product-detail-4.jpg" data-lightbox="product" title="Product item 4"><img class="img-fluid" src="{{asset('layouts')}}/img/product-detail-1.jpg" alt="..."></a></div>
+                  
+                  <div class="owl-carousel product-slider" data-slider-id="1">
+                    @foreach($products->pictures as $image)
+                    <a class="d-block" href="{{asset('productImages/'.$product->image_path)}}" data-lightbox="product" title="Product item 1"><img class="img-fluid" src="{{asset('productImages/'.$image->image_path)}}" alt="..."> @endforeach</a>
+                  
+                  </div>
                 </div>
               </div>
             </div>
@@ -30,11 +36,11 @@
                 <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
               </ul>
               <h1>{{$products->name}}</h1>
-              <p class="text-muted lead">{{$products->price}}</p>
+              <p class="text-muted lead">Rs:{{$products->sale_price}}</p>
               <p class="text-small mb-4">{{$products->description}}</p>
               <div class="row align-items-stretch mb-4">
                 <div class="col-sm-5 pr-sm-0">
-                  <div class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white"><span class="small text-uppercase text-gray mr-4 no-select">{{$products->quantity}}</span>
+                  <div class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white"><span class="small text-uppercase text-gray mr-4 no-select">quantity:{{$products->quantity}}</span>
                     <div class="quantity">
                       <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
                       <input class="form-control border-0 shadow-0 p-0" type="text" value="1">
@@ -66,7 +72,7 @@
               <div class="p-4 p-lg-5 bg-white">
                 <div class="row">
                   <div class="col-lg-8">
-                    <div class="media mb-3"><img class="rounded-circle" src="img/customer-1.png" alt="" width="50">
+                    <div class="media mb-3"><img class="rounded-circle" src="{{asset('layouts')}}/img/cat-img-3.jpg" alt="" width="50">
                       <div class="media-body ml-3">
                         <h6 class="mb-0 text-uppercase">Jason Doe</h6>
                         <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
@@ -80,7 +86,7 @@
                         <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                       </div>
                     </div>
-                    <div class="media"><img class="rounded-circle" src="img/customer-2.png" alt="" width="50">
+                    <div class="media"><img class="rounded-circle" src="{{asset('layouts')}}/img/cat-img-2.jpg" alt="" width="50">
                       <div class="media-body ml-3">
                         <h6 class="mb-0 text-uppercase">Jason Doe</h6>
                         <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
@@ -105,59 +111,11 @@
             <!-- PRODUCT-->
             <div class="col-lg-3 col-sm-6">
               <div class="product text-center skel-loader">
-                <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-1.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="#">Add to cart</a></li>
-                      <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Kui Ye Chen’s AirPods</a></h6>
-                <p class="small text-muted">$250</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
-              <div class="product text-center skel-loader">
-                <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-2.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="#">Add to cart</a></li>
-                      <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Air Jordan 12 gym red</a></h6>
-                <p class="small text-muted">$300</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
-              <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-3.jpg" alt="..."></a>
                   <div class="product-overlay">
                     <ul class="mb-0 list-inline">
                       <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="#">Add to cart</a></li>
-                      <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Cyan cotton t-shirt</a></h6>
-                <p class="small text-muted">$25</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-lg-3 col-sm-6">
-              <div class="product text-center skel-loader">
-                <div class="d-block mb-3 position-relative"><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-4.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="#">Add to cart</a></li>
+                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart">Add to cart</a></li>
                       <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
                     </ul>
                   </div>

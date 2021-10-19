@@ -19,8 +19,8 @@
           </header>
           <div class="row">
             <div class="col-md-4 mb-4 mb-md-0"><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-1.jpg" alt=""><strong class="category-item-title">Clothes</strong></a></div>
-            <div class="col-md-4 mb-4 mb-md-0"><a class="category-item mb-4" href="shop.html"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-2.jpg" alt=""><strong class="category-item-title">Shoes</strong></a><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-3.jpg" alt=""><strong class="category-item-title">Watches</strong></a></div>
-            <div class="col-md-4"><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-4.jpg" alt=""><strong class="category-item-title">Electronics</strong></a></div>
+            <div class="col-md-4 mb-4 mb-md-0"><a class="category-item mb-4" href="\shop"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-2.jpg" alt=""><strong class="category-item-title">Shoes</strong></a><a class="category-item" href="\shop"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-3.jpg" alt=""><strong class="category-item-title">Watches</strong></a></div>
+            <div class="col-md-4"><a class="category-item" href="\shop"><img class="img-fluid" src="{{asset('layouts')}}/img/cat-img-4.jpg" alt=""><strong class="category-item-title">Electronics</strong></a></div>
           </div>
         </section>
         <!-- TRENDING PRODUCTS-->
@@ -85,7 +85,7 @@
             <div class="col-xl-3 col-lg-4 col-sm-6">
               <div class="product text-center">
                 <div class="position-relative mb-3">
-                  <div class="badge text-white badge-info">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-4.jpg" alt="..."></a>
+                  <div class="badge text-white badge-info">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('layouts')}}/img/product-3.jpg" alt="..."></a>
                   <div class="product-overlay">
                     <ul class="mb-0 list-inline">
                       <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>

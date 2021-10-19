@@ -9,11 +9,9 @@ use App\Models\Image;
 
 class ProductController extends Controller
 {
-    public function index(){
-     
-         $products=Product::with('pictures')->first();
-         return view('layouts.productDetail',compact('products')); 
-
+    public function index($id){
+         $products=Product::with('pictures')->find($id);
+         return view('layouts.productDetail',compact('products'));
 
     }
 }
