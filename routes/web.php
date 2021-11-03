@@ -40,3 +40,8 @@ Route::group(['middleware' => ['role:admin,user']], function () {
  Route::get('productdeatil/{id}','FrontendController\ProductController@index')->name('productdeatil');
  Route::get('cart','FrontendController\CartController@index')->name('cart');
  Route::get('checkout','FrontendController\CheckoutController@index')->name('checkout');
+ Route::get('categoriedeatil/{id}','FrontendController\CategoryController@categories');
+
+//categries
+Route::get('womenTshirt','FrontendController\CategoryController@womenTshirt')->name('womenTshirt');
+Route::get('/addTocart/{id}','FrontendController\ProductController@getAddToCart')->name('addTocart');

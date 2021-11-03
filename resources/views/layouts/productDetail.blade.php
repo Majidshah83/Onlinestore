@@ -48,8 +48,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-3 pl-sm-0"><a class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" href="cart">Add to cart</a></div>
-              </div><a class="btn btn-link text-dark p-0 mb-4" href="#"><i class="far fa-heart mr-2"></i>Add to wish list</a><br>
+                <div class="col-sm-3 pl-sm-0"><a class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" href="\cart">Add to cart</a></div>
+              </div><a class="btn btn-link text-dark p-0 mb-4" href="\cart"><i class="far fa-heart mr-2"></i>Add to wish list</a><br>
               <ul class="list-unstyled small d-inline-block">
                 <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-muted">{{$products->sku}}</span></li>
                 <li class="px-3 py-2 mb-1 bg-white text-muted"><strong class="text-uppercase text-dark">Category:</strong><a class="reset-anchor ml-2" href="#">Demo Products</a></li>
@@ -65,17 +65,18 @@
             <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
               <div class="p-4 p-lg-5 bg-white">
                 <h6 class="text-uppercase">Product description </h6>
-                <p class="text-muted text-small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="text-muted text-small mb-0">{{$products->long_description}}</p>
               </div>
             </div>
             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                @foreach($products->reviews as $review)
               <div class="p-4 p-lg-5 bg-white">
                 <div class="row">
                   <div class="col-lg-8">
-                    <div class="media mb-3"><img class="rounded-circle" src="{{asset('layouts')}}/img/cat-img-3.jpg" alt="" width="50">
+                    <div class="media mb-3">
                       <div class="media-body ml-3">
                         <h6 class="mb-0 text-uppercase">Jason Doe</h6>
-                        <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
+                        <p class="small text-muted mb-0 text-uppercase">{{$review->date}}</p>
                         <ul class="list-inline mb-1 text-xs">
                           <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
                           <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
@@ -83,26 +84,14 @@
                           <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
                           <li class="list-inline-item m-0"><i class="fas fa-star-half-alt text-warning"></i></li>
                         </ul>
-                        <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="text-small mb-0 text-muted">{{$review->comment}}</p>
                       </div>
                     </div>
-                    <div class="media"><img class="rounded-circle" src="{{asset('layouts')}}/img/cat-img-2.jpg" alt="" width="50">
-                      <div class="media-body ml-3">
-                        <h6 class="mb-0 text-uppercase">Jason Doe</h6>
-                        <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
-                        <ul class="list-inline mb-1 text-xs">
-                          <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                          <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                          <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                          <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                          <li class="list-inline-item m-0"><i class="fas fa-star-half-alt text-warning"></i></li>
-                        </ul>
-                        <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
+              @endforeach
             </div>
           </div>
           <!-- RELATED PRODUCTS-->
@@ -115,8 +104,8 @@
                   <div class="product-overlay">
                     <ul class="mb-0 list-inline">
                       <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart">Add to cart</a></li>
-                      <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="productdeatil/cart">Add to cart</a></li>
+                      <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="/cart" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
                     </ul>
                   </div>
                 </div>

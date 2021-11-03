@@ -58,6 +58,7 @@
         @yield('productdeatail')  <!-- content is name  of productdeatil page -->
          @yield('cart')  <!-- content is name  of cart page -->
           @yield('checkout')  <!-- content is name  of checkout page -->
+          @yield('women')
       
       <footer class="bg-dark text-white">
      @include('layouts.footer')   <!--inlude footer page -->

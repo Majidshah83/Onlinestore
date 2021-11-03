@@ -63,42 +63,12 @@
             <div class="row">
               <!-- SHOP SIDEBAR-->
               <div class="col-lg-3 order-2 order-lg-1">
-                <h5 class="text-uppercase mb-4">Categories</h5>
-                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">Fashion &amp; Acc</strong></div>
+                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">Categories</strong></div>
+                @foreach($categories as $categorie)
                 <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
-                  <li class="mb-2"><a class="reset-anchor" href="#">Women's T-Shirts</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Men's T-Shirts</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Dresses</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Novelty socks</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Women's sunglasses</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Men's sunglasses</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="{{url('categoriedeatil/'.$categorie->id)}}">{{$categorie->name}}</a></li>
                 </ul>
-                <div class="py-2 px-4 bg-light mb-3"><strong class="small text-uppercase font-weight-bold">Health &amp; Beauty</strong></div>
-                <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
-                  <li class="mb-2"><a class="reset-anchor" href="#">Shavers</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">bags</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Cosmetic</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Nail Art</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Skin Masks &amp; Peels</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Korean cosmetics</a></li>
-                </ul>
-                <div class="py-2 px-4 bg-light mb-3"><strong class="small text-uppercase font-weight-bold">Electronics</strong></div>
-                <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal mb-5">
-                  <li class="mb-2"><a class="reset-anchor" href="#">Electronics</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">USB Flash drives</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Headphones</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Portable speakers</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Cell Phone bluetooth headsets</a></li>
-                  <li class="mb-2"><a class="reset-anchor" href="#">Keyboards</a></li>
-                </ul>
-                <h6 class="text-uppercase mb-4">Price range</h6>
-                <div class="price-range pt-4 mb-5">
-                  <div id="range"></div>
-                  <div class="row pt-2">
-                    <div class="col-6"><strong class="small font-weight-bold text-uppercase">From</strong></div>
-                    <div class="col-6 text-right"><strong class="small font-weight-bold text-uppercase">To</strong></div>
-                  </div>
-                </div>
+                @endforeach
                 <h6 class="text-uppercase mb-3">Show only</h6>
                 <div class="custom-control custom-checkbox mb-1">
                   <input class="custom-control-input" id="customCheck1" type="checkbox">
@@ -178,7 +148,7 @@
                         <div class="product-overlay">
                           <ul class="mb-0 list-inline">
                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="\cart">Add to cart</a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="{{route('addTocart',['id'=>$product->id])}}">Add to cart</a></li>
                             <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
                           </ul>
                         </div>
