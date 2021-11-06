@@ -28,7 +28,7 @@ class RedirectIfAuthenticated
          return '/dashboard';
          break;
       case 'user':
-         return '/userpage';
+         return '/userdashboard';
          break; 
 
       default:

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\FrontendController;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -32,6 +31,26 @@ public function getAddToCart(Request $request, $id)
       // dd($request->Session()->get('cart'));
         return redirect()->route('shop');
     }
+public function getCart(){
+        if(!Session::has('cart'))
+        {
+           $product = [];
+           $totalPrice = 0;
+           return view('layouts.cart',compact('product','totalPrice'));
+        }
+        $oldCart=Session::get('cart');
+        $cart=new Cart($oldCart);
+        return view('layouts.cart',['product'=>$cart->items, 'totalPrice'=>$cart->totalPrice]);
+        
+     }
 
- 
+ public function deleteCart($id)
+    {
+        $cart = Session::get('cart');
+      
+        unset($cart[$id]);
+        Session::put('cart', $cart);
+        return redirect()->back();
+    }
+
 }

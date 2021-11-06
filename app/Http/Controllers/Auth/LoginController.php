@@ -40,7 +40,7 @@ public function redirectTo(){
            return '/dashboard';
             break;
             case 'user':
-            return '/userpage';
+            return '/userdashboard';
             break;
         default:
       return '/admin-login'; 

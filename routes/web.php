@@ -23,12 +23,12 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () { 
   Route::group(['middleware' => ['role:user,admin']], function () { 
           Route::get('/home', 'HomeController@index')->name('home');
-           Route::get('/userpage','User\UserController@index')->name('userpage');
+           Route::get('/userdashboard','User\UserController@dashboard')->name('userdashboard');
   });
-Route::group(['middleware' => ['role:admin,user']], function () { 
+Route::group(['middleware' => ['role:admin']], function () { 
 
       Route::get('/home', 'HomeController@index')->name('home');
-       Route::get('/dashboard','Admin\AdminController@index')->name('dashboard');
+       Route::get('/dashboard','Admin\AdminController@dashboard')->name('dashboard');
 
   });
 
@@ -45,3 +45,5 @@ Route::group(['middleware' => ['role:admin,user']], function () {
 //categries
 Route::get('womenTshirt','FrontendController\CategoryController@womenTshirt')->name('womenTshirt');
 Route::get('/addTocart/{id}','FrontendController\ProductController@getAddToCart')->name('addTocart');
+Route::get('getCart','FrontendController\ProductController@getCart')->name('getCart');
+Route::delete('deleteCart/{id}','FrontendController\ProductController@deleteCart')->name('deleteCart');
