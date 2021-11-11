@@ -47,3 +47,4 @@ Route::get('womenTshirt','FrontendController\CategoryController@womenTshirt')->n
 Route::get('/addTocart/{id}','FrontendController\ProductController@getAddToCart')->name('addTocart');
 Route::get('getCart','FrontendController\ProductController@getCart')->name('getCart');
 Route::delete('deleteCart/{id}','FrontendController\ProductController@deleteCart')->name('deleteCart');
+Route::get('getcheckout','FrontendController\ProductController@getCheckout')->name('getcheckout');

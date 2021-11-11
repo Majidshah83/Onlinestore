@@ -21,7 +21,7 @@ class ProductController extends Controller
 
 public function getAddToCart(Request $request, $id)
     {
-        $product = Product::find($id);
+        $product = Product::with('pictures')->find($id);
         $cart = Session::has('cart') ? Session::get('cart') : null;
         if (!$cart) {
             $cart = new Cart($cart);
@@ -40,14 +40,32 @@ public function getCart(){
         }
         $oldCart=Session::get('cart');
         $cart=new Cart($oldCart);
-        return view('layouts.cart',['product'=>$cart->items, 'totalPrice'=>$cart->totalPrice]);
+        $product=$cart->items;
+        $totalPrice=$cart->totalPrice;
+        return view('layouts.cart',compact('product','totalPrice'));
         
+     }
+
+
+    public function getCheckout(){
+         if(!Session::has('cart'))  //if not a cart
+         { 
+              $product = [];
+           $totalPrice = 0;
+               return view('layouts.checkout',['product'=>$cart->items, 'totalPrice'=>$cart->totalPrice]);
+         }
+         $oldCart=Session::get('cart'); //if having cart
+         $cart=new Cart($oldCart); //assign 
+         $totalPrice=$cart->totalPrice;
+         $product=$cart->items;
+         return view('layouts.checkout',compact('totalPrice','product'));
+
      }
 
  public function deleteCart($id)
     {
         $cart = Session::get('cart');
-      
+        dd($cart);
         unset($cart[$id]);
         Session::put('cart', $cart);
         return redirect()->back();

@@ -21,21 +21,21 @@ class Cart extends Model
 
     public function add($item, $id)
     {
-        $storedItem =['quantity'=>0, 'price' => $item->price, 'item' => $item];//group of that item=>$items for storing one time
+        $storedItem=['quantity'=>0, 'sale_price'=>$item->sale_price, 'item' => $item];//group of that item=>$items for storing one time
 
    if($this->items)
     {
-        if(array_key_exists($id,$this->items))
+        if(array_key_exists($id,$this->items))  //this is assocative array 
         {
             $storedItem=$this->items[$id]; //if item exit we add then overrite $storedItem
         }
     }
-
+    
         $storedItem['quantity']++;
-        $storedItem['price'] = $item->price * $storedItem['quantity'];
+        $storedItem['sale_price']=$item->sale_price * $storedItem['quantity'];
         $this->items[$id] = $storedItem;
         $this->totalQuantity++;
-        $this->totalPrice += $item->price;
+        $this->totalPrice +=$item->sale_price;
     }
 
    }
