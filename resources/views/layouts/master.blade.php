@@ -66,6 +66,7 @@
 
       </footer>
      <!-- JavaScript files-->
+    
        @include('layouts.script')   <!--inlude script page -->
       <script>
         // ------------------------------------------------------- //

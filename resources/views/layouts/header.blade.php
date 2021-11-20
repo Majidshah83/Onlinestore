@@ -13,7 +13,7 @@
                
                </ul>
               <ul class="navbar-nav ml-auto">               
-                <li class="nav-item"><a class="nav-link" href="{{url('getCart') }}"> <i class="fas fa-dolly-flatbed mr-1 text-gray "></i>Cart<small class="carts">{{Session::has('cart') ? Session::get('cart')->totalQuantity  : ''}}</small></a></li>
+                <li class="nav-item"><a class="nav-link" href="cart"> <i class="fas fa-dolly-flatbed mr-1 text-gray "></i>Cart<small class="carts">{{ count((array) session('cart')) }}</small></a></li>
         
                 <li class="nav-item"><a class="nav-link" href="\login"> <i class="fas fa-user-alt mr-1 text-gray"></i>Login</a></li>
                <li class="nav-item"><a class="nav-link" href="\register"> <i class="fas fa-user-alt mr-1 text-gray"></i>Register</a></li>
@@ -22,7 +22,17 @@
           </nav>
         </div>
       </header>
-
+      <div class="container">
+  
+    @if(session('success'))
+        <div class="alertt">
+          {{ session('success') }}
+        </div> 
+    @endif
+  
+    @yield('content')
+</div>
+  
       <style type="text/css">
         
         .carts{
@@ -30,4 +40,14 @@
           font-weight: bold;
           color: black;
         }
+
+    .alertt{
+    background-color: red;
+    margin-top: 7px;
+    padding: 6px;
+    margin-left: -3%;
+    margin-right: 70%;
+    color: white;
+    }
+    
       </style>

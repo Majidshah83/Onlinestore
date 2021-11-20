@@ -8,6 +8,8 @@ use App\Models\Categorie;
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\Reviews;
+use App\Models\Order;
+use App\Models\Billingdetail;
 class CategoryController extends Controller
 {
    

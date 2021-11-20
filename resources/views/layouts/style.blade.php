@@ -2,6 +2,7 @@
     <!-- <link rel="stylesheet" href="{{asset('layouts')}}/vendor/bootstrap/css/bootstrap.min.css"> -->
 
     <!-- Lightbox-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('layouts')}}/vendor/lightbox2/css/lightbox.min.css">
     <!-- Range slider-->
     <link rel="stylesheet" href="{{asset('layouts')}}/vendor/nouislider/nouislider.min.css">
@@ -20,6 +21,7 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('layouts')}}/img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    
  <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->

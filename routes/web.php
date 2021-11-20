@@ -37,7 +37,8 @@ Route::group(['middleware' => ['role:admin']], function () {
 
  Route::get('index','FrontendController\MainController@index');
  Route::get('shop','FrontendController\ShopController@index')->name('shop');
- Route::get('productdeatil/{id}','FrontendController\ProductController@index')->name('productdeatil');
+ Route::get('product_list/','FrontendController\ProductController@index')->name('product_list');
+ Route::get('productdeatil/{id}','FrontendController\ProductController@productDteail')->name('productdeatil');
  Route::get('cart','FrontendController\CartController@index')->name('cart');
  Route::get('checkout','FrontendController\CheckoutController@index')->name('checkout');
  Route::get('categoriedeatil/{id}','FrontendController\CategoryController@categories');
@@ -45,6 +46,6 @@ Route::group(['middleware' => ['role:admin']], function () {
 //categries
 Route::get('womenTshirt','FrontendController\CategoryController@womenTshirt')->name('womenTshirt');
 Route::get('/addTocart/{id}','FrontendController\ProductController@getAddToCart')->name('addTocart');
-Route::get('getCart','FrontendController\ProductController@getCart')->name('getCart');
-Route::delete('deleteCart/{id}','FrontendController\ProductController@deleteCart')->name('deleteCart');
-Route::get('getcheckout','FrontendController\ProductController@getCheckout')->name('getcheckout');
+Route::post('place_Order','FrontendController\CheckoutController@placeOrder')->name('place_Order');
+Route::post('update-cart', 'FrontendController\ProductController@update')->name('update.cart');
+Route::delete('remove-from-cart','FrontendController\ProductController@remove')->name('remove.from.cart');

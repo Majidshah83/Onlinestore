@@ -26,48 +26,51 @@
           <h2 class="h5 text-uppercase mb-4">Billing details</h2>
           <div class="row">
             <div class="col-lg-8">
-              <form action="#">
+
+              <form action="{{url('place_Order')}}" method="POST">
                 <div class="row">
+                 @csrf
                   <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="firstName">First name</label>
-                    <input class="form-control form-control-lg" id="firstName" type="text" placeholder="Enter your first name">
+                    <label class="text-small text-uppercase">First name</label>
+                    <input class="form-control form-control-lg"  name="first_name" type="text" placeholder="Enter your first name" required>
                   </div>
                   <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="lastName">Last name</label>
-                    <input class="form-control form-control-lg" id="lastName" type="text" placeholder="Enter your last name">
+                    <label class="text-small text-uppercase" >Last name</label>
+                    <input class="form-control form-control-lg"  name="last_name" type="text" placeholder="Enter your last name" required>
                   </div>
                   <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="email">Email address</label>
-                    <input class="form-control form-control-lg" id="email" type="email" placeholder="e.g. Jason@example.com">
+                    <label class="text-small text-uppercase" >Email address</label>
+                    <input class="form-control form-control-lg" name="email" type="email" placeholder="e.g. Jason@example.com" required>
                   </div>
                   <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="phone">Phone number</label>
-                    <input class="form-control form-control-lg" id="phone" type="tel" placeholder="e.g. +02 245354745">
+                    <label class="text-small text-uppercase">Phone number</label>
+                    <input class="form-control form-control-lg"  name="phone_number" type="tel" placeholder="e.g. +02 245354745" required>
                   </div>
                   <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="company">Company name (optional)</label>
-                    <input class="form-control form-control-lg" id="company" type="text" placeholder="Your company name">
+                    <label class="text-small text-uppercase">Company name (optional)</label>
+                    <input class="form-control form-control-lg" name="company_name" type="text" placeholder="Your company name" required>
                   </div>
                    <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="country">Country</label>
-                    <input class="form-control form-control-lg" id="country" type="text" placeholder="your country name">
+                    <label class="text-small text-uppercase" >Country</label>
+                    <input class="form-control form-control-lg" name="country" type="text" placeholder="your country name" required>
                   </div>
                   <div class="col-lg-12 form-group">
-                    <label class="text-small text-uppercase" for="address">Address line 1</label>
-                    <input class="form-control form-control-lg" id="address" type="text" placeholder="House number and street name">
+                    <label class="text-small text-uppercase" >Address line 1</label>
+                    <input class="form-control form-control-lg"  name="address_line1" type="text" placeholder="House number and street name" required>
                   </div>
                   <div class="col-lg-12 form-group">
-                    <label class="text-small text-uppercase" for="address">Address line 2</label>
-                    <input class="form-control form-control-lg" id="addressalt" type="text" placeholder="Apartment, Suite, Unit, etc (optional)">
+                    <label class="text-small text-uppercase">Address line 2</label>
+                    <input class="form-control form-control-lg" id="addressalt" name="address_line2" type="text" placeholder="Apartment, Suite, Unit, etc (optional)" required>
                   </div>
                   <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="city">District</label>
-                    <input class="form-control form-control-lg" id="city" type="text">
+                    <label class="text-small text-uppercase" >District</label>
+                    <input class="form-control form-control-lg"  name="district" type="text" required>
                   </div>
-                  <div class="col-lg-6 form-group">
-                    <label class="text-small text-uppercase" for="state">City</label>
-                    <input class="form-control form-control-lg" id="state" type="text">
+                     <div class="col-lg-6 form-group">
+                    <label class="text-small text-uppercase" >City</label>
+                    <input class="form-control form-control-lg"  name="city" type="text" required>
                   </div>
+
                   <div class="col-lg-6 form-group">
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" id="alternateAddressCheckbox" type="checkbox">
@@ -79,23 +82,30 @@
                     <button class="btn btn-dark" type="submit">Place order</button>
                   </div>
                 </div>
-              </form>
+                 </form>
             </div>
             <!-- ORDER SUMMARY-->
+        
+
             <div class="col-lg-4">
               <div class="card border-0 rounded-0 p-lg-4 bg-light">
                 <div class="card-body">
                   <h5 class="text-uppercase mb-4">Your order</h5>
                   <ul class="list-unstyled mb-0">
-                    @foreach($product as $products)
-                    <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">{{$products['item']['name']}}</strong><span class="text-muted small">{{$products['item']['sale_price']}}</span></li>
+                    @php $total=0  @endphp
+                    @if(session('cart'))
+                    @foreach(session('cart') as $id=>$details)
+                     @php $total += $details['price'] * $details['quantity'] @endphp
+                    <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">{{$details['name']}}</strong><span class="text-muted small">{{$details['price']}}</span></li>
                     <li class="border-bottom my-2"></li>
                      @endforeach
-                    <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Total</strong><span>{{$totalPrice}}</span></li>
+                    @endif
+                    <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Total</strong><span>{{$total}}</span></li>
                    
                   </ul>
                 </div>
               </div>
+           
             </div>
           </div>
         </section>
