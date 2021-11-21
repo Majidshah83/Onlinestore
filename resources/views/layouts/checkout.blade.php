@@ -70,6 +70,9 @@
                     <label class="text-small text-uppercase" >City</label>
                     <input class="form-control form-control-lg"  name="city" type="text" required>
                   </div>
+                 
+                    <input type="hidden" class="form-control form-control-lg"  name="user_id" value="{{Auth::user()->id}}">
+                
 
                   <div class="col-lg-6 form-group">
                     <div class="custom-control custom-checkbox">

@@ -4,6 +4,7 @@
 @section('cart')
 <table  class="table table-hover table-condensed">
     <thead>
+        @if(session('cart'))
         <tr>
             <th style="width:50%">Product</th>
             <th style="width:10%">Price</th>
@@ -11,6 +12,7 @@
             <th style="width:22%" class="text-center">Subtotal</th>
             <th style="width:10%"></th>
         </tr>
+        @endif
     </thead>
     <tbody>
         @php $total = 0 @endphp
@@ -37,7 +39,7 @@
                     </td>
                 </tr>
             @endforeach
-        @endif
+      
     </tbody>
     <tfoot>
         <tr>
@@ -51,6 +53,22 @@
             </td>
         </tr>
     </tfoot>
+    @else
+     
+     <div class="container" style="margin-top: 25px;width: 40%;">
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <center>
+                    <h4 class="text-primary text-uppercase">Your shopping cart is empty</h4>
+               
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 </table>
 
 

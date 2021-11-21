@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::group(['middleware' => ['role:user,admin']], function () { 
           Route::get('/home', 'HomeController@index')->name('home');
            Route::get('/userdashboard','User\UserController@dashboard')->name('userdashboard');
+           Route::get('checkout','FrontendController\CheckoutController@index')->name('checkout');
   });
 Route::group(['middleware' => ['role:admin']], function () { 
 
@@ -40,7 +41,7 @@ Route::group(['middleware' => ['role:admin']], function () {
  Route::get('product_list/','FrontendController\ProductController@index')->name('product_list');
  Route::get('productdeatil/{id}','FrontendController\ProductController@productDteail')->name('productdeatil');
  Route::get('cart','FrontendController\CartController@index')->name('cart');
- Route::get('checkout','FrontendController\CheckoutController@index')->name('checkout');
+ 
  Route::get('categoriedeatil/{id}','FrontendController\CategoryController@categories');
 
 //categries
