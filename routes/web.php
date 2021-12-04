@@ -14,24 +14,28 @@ use App\Http\Controllers\FrontendController\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
+
+// Auth::routes();
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth']], function () { 
-  Route::group(['middleware' => ['role:user,admin']], function () { 
+
+  // Route::group(['middleware' => ['role:user,admin']], function () { 
           Route::get('/home', 'HomeController@index')->name('home');
-           Route::get('/userdashboard','User\UserController@dashboard')->name('userdashboard');
+           Route::get('/userdashboard','User\UserController@index')->name('userdashboard');
            Route::get('checkout','FrontendController\CheckoutController@index')->name('checkout');
-  });
-Route::group(['middleware' => ['role:admin']], function () { 
+  // });
+// Route::group(['middleware' => ['role:admin']], function () { 
 
       Route::get('/home', 'HomeController@index')->name('home');
        Route::get('/dashboard','Admin\AdminController@dashboard')->name('dashboard');
+       Route::get('/','Admin\AdminController@dashboard')->name('dashboard');
 
-  });
+  // });
 
 });
  Route::get('/home', 'HomeController@index')->name('home');

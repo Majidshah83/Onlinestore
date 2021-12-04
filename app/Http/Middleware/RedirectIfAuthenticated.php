@@ -18,8 +18,9 @@ class RedirectIfAuthenticated
      * @return mixed
      */
    public function handle($request, Closure $next, $guard = null) {
+
     // dd($request->all());
-    
+
   if (Auth::guard($guard)->check()) {
     $role = Auth::user()->role; 
 

@@ -62,19 +62,22 @@
                     <label class="text-small text-uppercase">Address line 2</label>
                     <input class="form-control form-control-lg" id="addressalt" name="address_line2" type="text" placeholder="Apartment, Suite, Unit, etc (optional)" required>
                   </div>
-                  <div class="col-lg-6 form-group">
+                  <div class="col-lg-4 form-group">
                     <label class="text-small text-uppercase" >District</label>
                     <input class="form-control form-control-lg"  name="district" type="text" required>
                   </div>
-                     <div class="col-lg-6 form-group">
+                     <div class="col-lg-4 form-group">
                     <label class="text-small text-uppercase" >City</label>
                     <input class="form-control form-control-lg"  name="city" type="text" required>
                   </div>
-                 
+                  
                     <input type="hidden" class="form-control form-control-lg"  name="user_id" value="{{Auth::user()->id}}">
-                
-
-                  <div class="col-lg-6 form-group">
+                 <div class="col-lg-4 form-group">
+                    <label class="text-small text-uppercase">ZipCode</label>
+                    <input class="form-control form-control-lg"  name="zipCode" type="text" required>
+                  </div>
+                  
+                  <div class="col-lg-12 form-group">
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" id="alternateAddressCheckbox" type="checkbox">
                       <label class="custom-control-label text-small" for="alternateAddressCheckbox">Alternate billing address</label>
@@ -101,6 +104,7 @@
                      @php $total += $details['price'] * $details['quantity'] @endphp
                     <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">{{$details['name']}}</strong><span class="text-muted small">{{$details['price']}}</span></li>
                     <li class="border-bottom my-2"></li>
+                   
                      @endforeach
                     @endif
                     <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Total</strong><span>{{$total}}</span></li>

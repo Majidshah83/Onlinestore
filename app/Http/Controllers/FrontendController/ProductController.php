@@ -30,7 +30,6 @@ class ProductController extends Controller
         $product = Product::with('pictures')->findOrFail($id);
          // return $product;
         $cart = session()->get('cart', []);
-         // return  $cart;
         if(isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
@@ -59,7 +58,7 @@ class ProductController extends Controller
                 "name" => $product->name,
                 "quantity" => 1,
                 "price" => $product->price,
-                "image" => $product->image
+                "image" => $product->image,
             ];
         }
           

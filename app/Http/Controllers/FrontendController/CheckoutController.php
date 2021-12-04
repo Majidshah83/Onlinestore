@@ -8,7 +8,8 @@ use App\Models\Order;
 use App\Models\Cart;
 use App\Models\Billingdetail;
 use App\Models\Product;
-use Session;
+use App\Models\Order_item;
+use Illuminate\Support\Facades\Session;
 use Auth;
 class CheckoutController extends Controller
 {
@@ -16,23 +17,23 @@ class CheckoutController extends Controller
    
         return view('layouts.checkout');
     }
+public function placeOrder(Request $request)
+   {         
+$sessionCart=Session::get('cart');
+// return $sessionCart;
+   if(!empty($sessionCart)){  
+    foreach ($sessionCart as $key => $value) {
+        // code...
+   
+        $totalquantity=$value['quantity'];
+       $totalPrice=$value['price'];
 
-
-
-   public function placeOrder(Request $request)
-   {
-         
-// $sessionCart=Session::get('cart');
-
- $request->session()->forget('cart');
- //      echo "Data has been removed from session.";
-if($sessionCart){
-
-//         // if $sessioncart is true then following code should run and rest is my garbage code.....
-    $data = ['first_name'=>$request->first_name,
+       }
+    $data = ['first_name'=>$request->first_name,   
               'last_name' => $request->last_name,
               'email' =>$request->email,
-              'order_data'=>$request->order_data,
+              'totalPrice'=>$totalPrice,
+              'totalQuantity'=>$totalquantity,
               'phone_number' => $request->phone_number,
               'company_name' => $request->company_name,
               'country' =>$request->country,
@@ -40,19 +41,31 @@ if($sessionCart){
               'address_line2' => $request->address_line2,
               'district' => $request->district,
                'city' => $request->city,
-               'user_id'=>$request->user_id
-           
-
+               'zipCode'=>$request->zipCode,
+               'user_id'=>$request->user_id,
+               'tracking_no'=>'TCS'.rand(111111111,999999999),
            ];
-    return $data;
-   Billingdetail::create($data);
-   
-           
-    return redirect('checkout');
-   
-   }
+        $order=Order::create($data);
+ $orderProducts = [];
+ foreach ($sessionCart as $details)
+        {
+        
+            $product=Product::where('name',$details['name'])->first();
+            $orderProducts[] =[
+              'order_id' => $order->id,
+               'product_id'=> $product->id,
+               'price'=>$details['price'],
+               'quantity'=>$details['quantity'],
+                'price'=>($details['quantity'])*($details['price']),
+                
+            ];
+ 
+        }
+      Order_item::insert($orderProducts);
+    return "sucesfully insert";
 
 
 }
 }
 
+}

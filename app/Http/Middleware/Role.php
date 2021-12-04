@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use auth;
+use Auth;
 class Role
 {
     /**
@@ -15,6 +15,7 @@ class Role
      */
      public function handle($request, Closure $next,...$role)
     {   
+        // return $role;
         if(in_array(Auth::user()->role, $role)){
             return $next($request);
         }

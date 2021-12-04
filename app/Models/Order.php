@@ -9,7 +9,7 @@ class Order extends Model
     protected $table='orders';
      protected $fillable=[
      
-     'billingdetail_id','product_id','price','quantity','total_Price',
-
+      'user_id','first_name','last_name','email','phone_number','company_name','country','address_line1','address_line2','district','city','zipCode','totalQuantity','totalPrice','tracking_no',
+    
     ];
 }

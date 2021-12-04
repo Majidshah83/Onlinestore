@@ -60,7 +60,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <center>
-                    <h4 class="text-primary text-uppercase">Your shopping cart is empty</h4>
+                    <h4 class="text-danger text-uppercase">Your shopping cart is empty</h4>
                
                 </center>
             </div>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use auth;
+use Illuminate\Support\Facades\Redirect;
+
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -33,6 +35,14 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+    public function showLoginForm(){
+        if(empty(Auth::user())){
+            return view('auth.login');
+        }else{
+            return Redirect::to('dashboard');
+        }
+    }
 public function redirectTo(){
         $role=Auth::user()->role;
         switch($role){
