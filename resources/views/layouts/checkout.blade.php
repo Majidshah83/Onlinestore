@@ -3,6 +3,7 @@
 @section('checkout')
   <div class="container">
         <!-- HERO SECTION-->
+
         <section class="py-5 bg-light">
           <div class="container">
             <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
@@ -20,13 +21,16 @@
               </div>
             </div>
           </div>
+
         </section>
+         @if(session('cart'))
         <section class="py-5">
           <!-- BILLING ADDRESS-->
+           
           <h2 class="h5 text-uppercase mb-4">Billing details</h2>
           <div class="row">
             <div class="col-lg-8">
-
+            
               <form action="{{url('place_Order')}}" method="POST">
                 <div class="row">
                  @csrf
@@ -85,7 +89,8 @@
                   </div>
                  
                   <div class="col-lg-12 form-group">
-                    <button class="btn btn-dark" type="submit">Place order</button>
+                    <button class="btn btn-success">Place order</button>
+                  
                   </div>
                 </div>
                  </form>
@@ -115,6 +120,27 @@
            
             </div>
           </div>
+           @else
+     
+     <div class="container" style="margin-top: 25px;width: 40%;">
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <center>
+                    <h4 class="text-danger text-uppercase">You Can not checkout because there is no item in Cart</h4>
+                   
+         
+               
+                </center>
+                  <a href="shop" class="btn btn-warning" style=" margin-top: 6%;margin-left: 27%; margin-bottom: 5%;"> Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
+            @endif(session('cart'))
         </section>
+       
       </div>
+
+ 
       @stop

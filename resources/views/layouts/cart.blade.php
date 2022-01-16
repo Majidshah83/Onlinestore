@@ -22,8 +22,7 @@
                 <tr data-id="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
-                          
-                            <div class="col-sm-3 hidden-xs"><img src="{{ $details['image']}}" width="100" height="100" class="img-responsive"/></div> 
+                            <div class="col-sm-3 hidden-xs"><img src="{{ URL::asset('/ProductImages')}}/{{$details['image']}}" width="100" height="100" class="img-responsive"/></div> 
                             <div class="col-sm-9"> 
                                 <h4 class="nomargin">{{ $details['name'] }}</h4>
                             </div>
@@ -64,6 +63,7 @@
                
                 </center>
             </div>
+             <a href="shop" class="btn btn-warning" style=" margin-top: 6%;margin-left: 27%; margin-bottom: 5%;"> Continue Shopping</a>
         </div>
     </div>
 </div>

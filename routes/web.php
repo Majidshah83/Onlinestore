@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController\ProductController;
+use App\Http\Controllers\FrontendController\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,8 @@ Route::get('/addTocart/{id}','FrontendController\ProductController@getAddToCart'
 Route::post('place_Order','FrontendController\CheckoutController@placeOrder')->name('place_Order');
 Route::post('update-cart', 'FrontendController\ProductController@update')->name('update.cart');
 Route::delete('remove-from-cart','FrontendController\ProductController@remove')->name('remove.from.cart');
+Route::get('payment-success','FrontendController\paymentController@paymentSuccess')->name('payment-success');
+Route::get('paymentMethod','FrontendController\paymentController@paymentMethod')->name('paymentMethod');
+
+Route::get('stripe','FrontendController\StripeController@handleGet');
+Route::post('stripe-payment','FrontendController\StripeController@handlePost')->name('stripe.payment');

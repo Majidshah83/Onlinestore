@@ -51,7 +51,7 @@ $sessionCart=Session::get('cart');
         {
         
             $product=Product::where('name',$details['name'])->first();
-            $orderProducts[] =[
+            $orderProducts[]=[
               'order_id' => $order->id,
                'product_id'=> $product->id,
                'price'=>$details['price'],
@@ -62,9 +62,8 @@ $sessionCart=Session::get('cart');
  
         }
       Order_item::insert($orderProducts);
-    return "sucesfully insert";
-
-
+      Session:: flush();
+      return view('layouts.paymentMethod');
 }
 }
 

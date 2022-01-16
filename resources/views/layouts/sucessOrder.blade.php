@@ -2,7 +2,18 @@
 @section('title', 'Product Detail')
 @section('productdeatail')
 
-<h2>Thank you for your purchase!</h2>
-<svg class="svgfont " aria-hidden="true" data-spm-anchor-id="a2a0e.transaction_result.0.i3.5ec57d68fiGb1m"><use xlink:href="#lazada-ic-time" data-spm-anchor-id="a2a0e.transaction_result.0.i2.5ec57d68fiGb1m"></use></svg>
+<div class="container">
+   <section class="py-4"style=" margin-bottom: 8%; margin-left: 20%;margin-top: 7%;color: #5bff47;">
+          <!-- BILLING ADDRESS-->
+            @if(session()->has('message'))
+    <div style="">
+        <h1>{{ session()->get('message') }}</h1>
+    </div>
+@endif
+        </section>
+
+      </div>
+
+</div>
 
  @stop
