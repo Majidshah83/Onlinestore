@@ -81,42 +81,25 @@
   
          
             <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{url('admin-view-students')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-             Banner
+               Attendance List &nbsp &nbsp &nbsp 
                 <i class="fas fa-angle-left right"></i>
                 
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Banner List</p>
-                </a>
-              </li>
-            </ul>
           </li>
-
- <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <li class="nav-item has-treeview">
+            <a href="{{url('admin-get-report')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-             Product
+               Report
                 <i class="fas fa-angle-left right"></i>
                 
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="product_list/" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Product List</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          </li> 
  
         </ul>
 

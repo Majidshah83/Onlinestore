@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:black; color: white;">{{ __('Welcome to Online Shop Please login') }}</div>
+                 @if(session('message'))
+         <div class="alert alert-success">
+            <strong>{{session('message')}}</strong>
+         </div>
+         @endif
+                <div class="card-header" style="background-color:black; color: white;">{{ __('Welcome to Online Attandce  Please login') }}</div>
 
                 <div class="card-body" style=" background-color: gainsboro;">
                     <form method="POST" action="{{ route('login') }}">
@@ -56,7 +61,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#admin-form">
+      Register
+      </button>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -69,5 +76,57 @@
             </div>
         </div>
     </div>
+
+      <div class="modal fade" id="admin-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header border-bottom-0">
+                  <p class="modal-title" id="exampleModalLabel" style="font-size: 29px; font-weight: bold;">
+                     Register User
+                  </p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <form action="{{url('register-user')}}" method="POST">
+                  @csrf
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label for="Title">Name</label>
+                        <input type="text" class="form-control" id="text1" name="name"
+                           aria-describedby="titleHelp" placeholder="Enter name">
+                     </div>
+                     <div class="form-group">
+                        <label for="Title">Email</label>
+                        <input type="email" class="form-control" id="text1" name="email"
+                           aria-describedby="titleHelp" placeholder="Enter Email">
+                     </div>
+                     <div class="form-group">
+                        <label for="Title">Password</label>
+                        <input type="password" class="form-control" id="myInput" name="password"
+                           aria-describedby="titleHelp" placeholder="Enter Password">
+                          
+                     </div>
+                     <div class="form-group">
+                        <label for="Title">Re-type Password</label>
+                        <input type="password" class="form-control"  name="confirm_password"
+                           aria-describedby="titleHelp" placeholder=" Enter Re-type Password">
+                     </div>
+                     <div class="form-group">
+                        <label for="department">Select Role</label></br>
+                        <select class="form-control" aria-label=".form-select-sm example" name="role">
+                           <option selected>admin</option>
+                           <option>user</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="modal-footer border-top-0 d-flex justify-content-center">
+                     <button type="submit" class="btn btn-success">Save</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
 </div>
 @endsection

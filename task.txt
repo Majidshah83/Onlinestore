@@ -1,5 +1,0 @@
-Placeorder 
-1)first create two table order_items and orders through migration
-2)After that in orders table save personal deteail of customer 
-3)In and insert order deatil in order_item table 
-4)show successfull mesage through flash messge 

@@ -23,7 +23,6 @@ class RedirectIfAuthenticated
 
   if (Auth::guard($guard)->check()) {
     $role = Auth::user()->role; 
-
     switch ($role) {
       case 'admin':
          return '/dashboard';
