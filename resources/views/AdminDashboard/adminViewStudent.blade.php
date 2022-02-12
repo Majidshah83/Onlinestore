@@ -50,7 +50,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-         <input type="text" id="student_id" />
+         <input type="hidden" id="student_id" />
         <h5 class="modal-title" id="AddStudentModalLabel">Edit Student Data</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -124,7 +124,7 @@
 $(document).on('click', '.editbtn', function (e) {
  e.preventDefault()
             var student_id= $(this).val(); //edit id 
-            alert(student_id)
+            // alert(student_id)
             $('#EditStudentModal').modal('show');
             $.ajax({
               type: "GET",

@@ -19,6 +19,12 @@ use App\Http\Controllers\AttendaceController;
 
 
 // Auth::routes();
+
+Route::post('admin-system-upgrade','AttendaceController@upGradPost')->name('admin-system-upgrade');
+Route::get('admin-show-upgrade','AttendaceController@upGradShow')->name('admin-show-upgrade');
+Route::post('admin-system-report','AttendaceController@systemReportpost')->name('admin-system-report');
+Route::get('admin-system-report','AttendaceController@systemReportFromDate')->name('admin-system-report');
+Route::get('admin-count-attendence','AttendaceController@countAttendence')->name('admin-count-attendence');
 Route::post('admin-post-report','AttendaceController@Reportpost')->name('admin-post-report');
 Route::get('admin-get-report','AttendaceController@ReportFromDate')->name('admin-get-report');
 Route::post('admin-update-students/{id}','AttendaceController@updateStudentlist')->name('admin-update-students');

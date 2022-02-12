@@ -157,10 +157,12 @@ class AttendaceController extends Controller
       }
       
   }
+//FromDate Todate show
 public function ReportFromDate()
 {   
  return view('AdminDashboard.fromDateReport');
 }
+//FromDate Todate
  public function Reportpost(Request $request)
  {
 $dateS=$request->input('fromdate');
@@ -173,4 +175,35 @@ $result = Attendace::with('users')->where('user_id',$userid->id)->whereBetween('
 return view('AdminDashboard.fromDateReport',compact('result'));
 
  }
+
+ public function countAttendence()
+ {
+  
+   $ViewAttendance = Attendace::with('users')->select("user_id",DB::raw('count(IF(status = "P", 1, NULL)) as present'),DB::raw('count(IF(status = "A", 1, NULL)) as absent'),DB::raw('count(IF(status = "L", 1, NULL)) as leaves'))->groupBy("user_id")->get();
+   return view('AdminDashboard.countSatatus',compact('ViewAttendance'));
+    
+    
+ }
+//System FromDate Todate report show 
+public function systemReportFromDate()
+{   
+ return view('AdminDashboard.systemReport');
+}
+//System FromDate Todate report
+public function systemReportpost(Request $request)
+ {
+$dateS=$request->input('fromdate');
+$date=$request->input('todate');
+$dateFrom=Carbon::parse($dateS);
+$dateTO=Carbon::parse($date);
+
+$result=Attendace::with('users')->whereBetween('date_Time', [$dateFrom->format('Y-m-d'), $dateTO->format('Y-m-d')])->get();
+
+   return view('AdminDashboard.systemReport',compact('result'));
+}
+
+public function upGradShow()
+{
+    return view('AdminDashboard.Upgradsystem');
+}
 }

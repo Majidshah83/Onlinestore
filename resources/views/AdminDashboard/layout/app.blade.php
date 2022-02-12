@@ -77,9 +77,6 @@
             </a>
     <!--  -->
           </li>
-         
-  
-         
             <li class="nav-item has-treeview">
             <a href="{{url('admin-view-students')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -94,19 +91,46 @@
             <a href="{{url('admin-get-report')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Report
+                Report
                 <i class="fas fa-angle-left right"></i>
                 
               </p>
             </a>
           </li> 
- 
+          <li class="nav-item has-treeview">
+            <a href="{{url('admin-count-attendence')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Attendance Report &nbsp &nbsp &nbsp 
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+          </li> 
+         <li class="nav-item has-treeview">
+            <a href="{{url('admin-system-report')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                System Report &nbsp &nbsp &nbsp 
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+          </li> 
+
+          <li class="nav-item has-treeview">
+            <a href="{{url('admin-show-upgrade')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Upgrade System &nbsp &nbsp &nbsp 
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+          </li> 
+
         </ul>
 
-
-     
-      
-           
       </nav>
   </div>
 </div>

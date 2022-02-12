@@ -9,22 +9,18 @@ text-align: center;
 margin-left: 27%;
 margin-right: 13%;
 margin-top: 32px;"> 
-  <form action="{{url('admin-post-report')}}" method="post">
+  <form action="{{url('admin-system-report')}}" method="post">
      @csrf
-  <label for="user">Name:</label>
-  <input type="text" id="user" name="user" placeholder="Enter Your Name"><br>
   <label for="fromdate">FromTo:</label>
-  <input type="date" id="fromdate" name="fromdate"><br>
-   <label for="Todate" style="margin-left: 49px;">ToDate:</label>
-  <input type="date" id="todate" name="todate"><br><br>
-  <button type="submit">Search</button>
+  <input type="month" id="frommonth" name="frommonth"value="2022"><br>
+ <button type="submit">Search</button>
 </form>
 </div>
 
 <div class="col-md-8">
       <table class="table table table-striped table-dark" style="margin-left: 38%;margin-top: 4%;">
-        <h2 style=" margin-left: 53%;margin-top: 2%;color: blue;">Report Of Student Attendance</h2>
-
+        <h2 style=" margin-left: 53%;margin-top: 2%;color: blue;">System Report All Students </h2>
+       
         <thead class="thead-dark" >
           <tr>
             <th scope="col">Id</th>
@@ -36,7 +32,7 @@ margin-top: 32px;">
           </tr>
         </thead> 
         <tbody>
-         @if(isset($result))
+        <!--  @if(isset($result))
          @foreach($result as $results)
          <tr>
             <td>{{$results->id}}</td>
@@ -48,7 +44,7 @@ margin-top: 32px;">
             <td></td>
          </tr>
           @endforeach
-         @endif
+          @endif -->
         </tbody>
       </table>
 
