@@ -206,4 +206,11 @@ public function upGradShow()
 {
     return view('AdminDashboard.Upgradsystem');
 }
+public function upGradPost(Request $request){
+    $month=$request->input('month');
+    $result=Attendace::with('users')->whereRaw('extract(month from date_Time) = ?', [$month])->select("user_id",DB::raw('count(IF(status = "P", 1, NULL)) as present'),DB::raw('count(IF(status = "A", 1, NULL)) as absent'),DB::raw('count(IF(status = "L", 1, NULL)) as leaves'))->groupBy("user_id")->get();
+   
+    return view('AdminDashboard.Upgradsystem',compact('result'));
+
+}
 }

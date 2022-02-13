@@ -45,7 +45,7 @@ margin-top: 32px;">
             <td>{{$results->leave_Request ?:'N/A'}}</td>
             <td>{{$results->leave_Approval ?:'N/A'}}</td>
              <td>{{$results->date_Time}}</td>
-            <td></td>
+           
          </tr>
           @endforeach
          @endif
